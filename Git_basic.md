@@ -137,3 +137,66 @@ $ rm -rf .git
   - `-p` : 파일의 변경 내용도 같이 보여줍니다.
   - `-n` : 숫자 n개만 큼의 커밋내역을 보여줍니다.
 
+## 원격 저장소
+
+### git remote
+
+- 로컬 저장소에 원격 저장소를 등록, 조회, 삭제 할 수 있는 명령어
+
+  1. 원격 저장소 등록
+
+     ```
+     git remote add <이름> <주소> 형식으로 작성합니다
+     ```
+
+     ```
+     $ git remote add origin 깃헙_저장소_주소
+     
+     [풀이]
+     git 명령어를 작성할건데, remote(원격 저장소)에 add(추가) 한다.
+     origin이라는 이름으로 "나의 깃헙_저장소_주소"라는 원격 저장소를
+     ```
+
+  2. 원격 저장소 조회
+
+     `git remote -v` 로 작성합니다.
+
+     ```
+     $ git remote -v
+     
+     origin  https://github.com/내_깃헙_닉네임/TIL.git (fetch)
+     origin  https://github.com/내_깃헙_닉네임/TIL.git (push)
+     ```
+
+  3. 원격 저장소 연결 삭제
+
+     ```
+     $ git remote rm origin
+     
+     [플이]
+     git 명령어를 작성할건데, remote(원격 저장소)와의 연결을 rm(삭제)한다.
+     ```
+
+### git push
+
+- 로컬 저장소의 커밋을 원격 저장소에 업로드하는 명령어
+
+- `git push <저장소 이름> <브랜치 이름> 형식으로 작성합니다.
+
+  ```
+  $ git push origin master
+  
+  [풀이]
+  git 명령어를 작성할건데, origin 이라는 이름의 원격 저장소에 master 브랜치의 commit들을 push 한다.
+  ```
+
+
+
+
+
+
+
+
+
+
+
