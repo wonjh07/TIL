@@ -1,0 +1,37 @@
+.container {
+	width: 740px;
+	height: 740px;
+	border: 1px solid black;
+}
+
+.box {
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+	background-color: aquamarine;
+}
+
+/* flex 연습
+
+	flex의 핵심은 부모요소를 통해 자식요소를 통제하는 것
+
+	[코드 작성 흐름]
+	1. flex의 방향에 따른 main & cross 축이 무엇인지 파악
+		- 방향 기본 값: row (반대로 column)
+	2. 메인 축 기준 정렬 => justify-content
+	3. 크로스 축 기준 정렬 => align-items
+
+*/
+
+.flex {
+	display: flex;
+	flex-direction: row;
+	/* 수평 중앙정렬 */
+	justify-content: center;
+	/* 수직 중앙정렬 */
+	align-items: center;
+	/* 수평 균등 정렬 */
+	justify-content: space-around;
+	/* row가 넘칠때 */
+	flex-wrap: wrap;
+}
