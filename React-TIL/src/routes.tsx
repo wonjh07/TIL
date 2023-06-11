@@ -1,11 +1,13 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import DragAndDrop from './components/DragAndDrop';
+import DragPage from './components/DragPage';
+import Lesson from './components/Lesson';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<DragAndDrop />} />
+        <Route path="/" element={<DragPage />} />
+        <Route path="/lesson" element={<Lesson />} />
       </Routes>
     </BrowserRouter>
   );

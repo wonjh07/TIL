@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 const DragAndDrop = () => {
@@ -14,7 +14,6 @@ const DragAndDrop = () => {
         data-dropid={idx}
         data-dropzone={'menu2'}
         onDragStart={(e) => dragStart(e)}
-        onDragOver={(e) => dragOver(e)}
         onDragEnter={(e) => dragEnter(e)}
         onDragEnd={(e) => dragEnd(e)}>
         {e}
@@ -31,8 +30,6 @@ const DragAndDrop = () => {
   const dragStart = (e: any) => {
     e.dataTransfer.effectAllowed = 'move';
     e.target.id = 'dragging';
-    const dummy = document.getElementById('dummy');
-    e.dataTransfer.setDragImage(dummy, 0, 0);
     setDrag(e.target.dataset.dropid);
   };
 
@@ -53,8 +50,7 @@ const DragAndDrop = () => {
   };
 
   return (
-    <Component>
-      <DragDummy id="dummy" />
+    <Component onDragOver={(e) => dragOver(e)}>
       <LeftBox>{getCards(menu1)}</LeftBox>
       <RightBox>{getCards(menu2)}</RightBox>
     </Component>
@@ -69,21 +65,12 @@ const Component = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
   #dragging {
-    border: 4px solid #2eaa1e;
-    scale: 1.04;
-    transition: 0.1s;
+    border: 4px solid #1eaa8e;
+    opacity: 0.001;
   }
-`;
-
-const DragDummy = styled.div`
-  position: absolute;
-  width: 0.1px;
-  height: 0.1px;
-  box-sizing: border-box;
-  opacity: 0;
 `;
 
 const LeftBox = styled.div`
@@ -94,7 +81,7 @@ const LeftBox = styled.div`
   gap: 1rem;
   width: 50%;
   box-sizing: border-box;
-  padding: 2rem;
+  padding: 4rem;
   background-color: gray;
 `;
 
@@ -106,7 +93,7 @@ const RightBox = styled.div`
   gap: 1rem;
   width: 50%;
   box-sizing: border-box;
-  padding: 2rem;
+  padding: 4rem;
   background-color: #b5b5b5;
 `;
 
